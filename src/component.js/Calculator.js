@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 const Calculator = () => {
   const [answer, setAnswer] = useState([]);
   const [num1, setNum1] = useState();
   const [num2, setNum2] = useState();
+
 
 
 
@@ -96,7 +97,10 @@ const change1 = (event) => {
           <button onClick={clickHandler3}>Div</button>
           <button onClick={clear}>Reset</button>
           <br></br>
-          <button >{`Answer  ${answer}`}</button>
+         
+          <button >{`Answer  ${answer}` }</button>
+
+          
 
         </div>
 
