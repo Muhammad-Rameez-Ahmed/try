@@ -2,10 +2,29 @@ import React, { useState } from 'react'
 
 const CalculatorApp = () => {
     const [val, setVal] = useState("");
+
+    const backspace=()=>{
+        try {
+            setVal(val.slice(0,-1))
+        } catch (error) {
+            setVal("")
+            
+        }
+    }
+
+    const calculate=()=>{
+        try {
+            setVal(eval(val))
+        } catch (error) {
+            setVal("Error")
+            
+            
+        }
+    }
     return (
         <>
             <div>
-                <div className="container">
+                <div className="container my-2">
                     <div className="row">
                         <div className="col-12">
                             <h1 className="display-6 fw-bolder text-center text-primary" >CALCULATOR</h1>
@@ -15,9 +34,10 @@ const CalculatorApp = () => {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-md-4">
-                            <div className="card border-primary mb-3">
+                            <div className="card border-primary mb-3 pt-3 shadow ">
                                 <div className="card-body text-primary">
-                                    <input type="text" className="form-control form-control-lg mb-4 text-center bg-light fs-4 text-primary shadow" value={val}></input>
+                                <input type="text" className="form-control form-control-lg mb-4 text-center bg-light fs-4 text-primary shadow" value={val}  onChange={(e)=>setVal(e.target.value)}></input>
+                            
                                     <div className="row">
                                         <div className="col-3">
                                             <button className="btn btn-light text-primary shadow p-4 fs-4" value="1" onClick={(e) => setVal(val + e.target.value)}>1</button>
@@ -33,11 +53,11 @@ const CalculatorApp = () => {
                                         </div>
 
                                         <div className="col-3">
-                                            <button className="btn btn-light text-primary shadow px-2 py-4 fs-4 " value="C" onClick={(e) => setVal(val + e.target.value)}>C/CE</button>
+                                            <button className="btn btn-light text-primary shadow px-2 py-4 fs-4 " value="C" onClick={(e) => backspace()}>C/CE</button>
 
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row mt-2">
                                         <div className="col-3">
                                             <button className="btn btn-light text-primary shadow p-4 fs-4" value="4" onClick={(e) => setVal(val + e.target.value)}>4</button>
 
@@ -56,7 +76,7 @@ const CalculatorApp = () => {
 
                                         </div>
                                     </div>
-                                    <div className="row">
+                                    <div className="row mt-2">
                                         <div className="col-3">
                                             <button className="btn btn-light text-primary shadow p-4 fs-4" value="7" onClick={(e) => setVal(val + e.target.value)}>7</button>
 
@@ -75,7 +95,7 @@ const CalculatorApp = () => {
 
                                         </div>
                                     </div>
-                                      <div className="row">
+                                      <div className="row mt-2">
                                         <div className="col-3">
                                             <button className="btn btn-light text-primary shadow p-4 fs-4" value="." onClick={(e) => setVal(val + e.target.value)}> . </button>
 
@@ -85,12 +105,12 @@ const CalculatorApp = () => {
 
                                         </div>
                                         <div className="col-3">
-                                            <button className="btn btn-light text-primary shadow p-4 fs-4" value="=" onClick={(e) => setVal(val + e.target.value)}>=</button>
+                                            <button className="btn btn-light text-primary shadow p-4 fs-4" value="=" onClick={(e) => calculate()}>=</button>
 
                                         </div>
 
                                         <div className="col-3">
-                                            <button className="btn btn-light text-primary shadow p-4  fs-4 " value="/" onClick={(e) => setVal(val + e.target.value)}>/</button>
+                                            <button className="btn btn-light text-primary shadow p-4  fs-4 " value="/" onClick={(e) =>setVal(val + e.target.value)}>/</button>
 
                                         </div>
                                     </div>
@@ -104,6 +124,7 @@ const CalculatorApp = () => {
                     </div>
                 </div>
             </div>
+        
         </>
     )
 }
