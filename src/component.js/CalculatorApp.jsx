@@ -33,7 +33,7 @@ const CalculatorApp = () => {
                                         </div>
 
                                         <div className="col-3">
-                                            <button className="btn btn-light text-primary shadow px-2 py-4 fs-4 " value="1" onClick={(e) => setVal(val + e.target.value)}>C/CE</button>
+                                            <button className="btn btn-light text-primary shadow px-2 py-4 fs-4 " value="C" onClick={(e) => setVal(val + e.target.value)}>C/CE</button>
 
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@ const CalculatorApp = () => {
                                         </div>
 
                                         <div className="col-3">
-                                            <button className="btn btn-light text-primary shadow p-4  fs-4 " value="X" onClick={(e) => setVal(val + e.target.value)}>X</button>
+                                            <button className="btn btn-light text-primary shadow p-4  fs-4 " value="*" onClick={(e) => setVal(val + e.target.value)}>X</button>
 
                                         </div>
                                     </div>
